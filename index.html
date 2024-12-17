@@ -65,13 +65,25 @@
             text-align: center;
             padding: 10px 0;
             margin-top: 20px;
+        .gauche {
+            text-align: left;
+        }
+        .centre {
+            text-align: center;
+        }
+        .droite {
+            text-align: right;
+        
         }
     </style>
 </head>
 <body>
     <header>
         <h1>La gazette de l'Olympe</h1>
-        <p>La gazette de l'Olympe et autre</p>
+        <time id="heure-actuelle"></time>
+        <div class="gauche"><marquee>Jacob GALEA</marquee></div>
+        <div class="right"><marquee>Andrea DI-PIETRO</marquee></div>
+        <div class="center">Tristan BOUTIN</div>
     </header>
 
     <nav>
@@ -84,6 +96,7 @@
     <div id="article-links">
     <a href="#Bienvenue">Bonjour à tous !</a>
     <a href="#Parmis-nous">Nous rejoindre</a>
+    <a href="#Nouveautes-du-17-decembre">Alerte à tous nos visiteurs</a>
     </div>
 <hr>
     <marquee>Bonjour à tous ! 
@@ -132,7 +145,26 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Mon Journal. Tous droits réservés.</p>
+        <p>&copy; 2024 Gazette de l'Olympe. Tous droits réservés.</p>
     </footer>
+
 </body>
+    <script>
+        function afficherHeure() {
+            const maintenant = new Date(); // Crée un objet Date contenant l'heure actuelle
+            const heure = maintenant.getHours().toString().padStart(2, '0'); // Heure (HH)
+            const minutes = maintenant.getMinutes().toString().padStart(2, '0'); // Minutes (MM)
+            const secondes = maintenant.getSeconds().toString().padStart(2, '0'); // Secondes (SS)
+            
+            const heureFormatee = `${heure}:${minutes}:${secondes}`; // Format HH:MM:SS
+            
+            document.getElementById('heure-actuelle').textContent = heureFormatee; // Mise à jour du contenu
+        }
+
+        // Met à jour l'heure chaque seconde
+        setInterval(afficherHeure, 1000);
+
+        // Appel initial pour afficher l'heure immédiatement
+        afficherHeure();
+    </script>
 </html>
