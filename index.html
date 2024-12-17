@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Journal</title>
+    <title>La gazette de l'Olympe</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,6 +27,23 @@
             color: #fff;
             margin: 0 10px;
             text-decoration: none;
+        }
+        #article-links {
+            margin-top: 10px;
+            text-align: center;
+        }
+        #article-links a {
+            display: inline-block;
+            margin: 5px;
+            color: #555;
+            background-color: #f0f0f0;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        #article-links a:hover {
+            background-color: #ddd;
         }
         main {
             max-width: 800px;
@@ -53,27 +70,37 @@
 </head>
 <body>
     <header>
-        <h1>Mon Journal</h1>
-        <p>Le journal de mes pensées et découvertes</p>
+        <h1>La gazette de l'Olympe</h1>
+        <p>La gazette de l'Olympe et autre</p>
     </header>
 
     <nav>
-        <a href="#">Accueil</a>
-        <a href="#">À propos</a>
+        <a href="#Accueil">Accueil</a>
+        <a href="#Forum">Forum</a>
         <a href="#">Contact</a>
     </nav>
 
+    <!-- Liste des liens vers les articles -->
+    <div id="article-links">
+        <a href="#article1">Titre de l'article</a>
+        <a href="#Bienvenue">Bonjour à tous !</a>
+    </div>
+
     <main>
-        <article>
+        <article id="article1">
             <h2>Titre de l'article</h2>
             <p><strong>Publié le :</strong> 4 décembre 2024</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod auctor lectus, vel tempor lectus cursus non.</p>
         </article>
 
-        <article>
-            <h2>Un autre titre d'article</h2>
-            <p><strong>Publié le :</strong> 3 décembre 2024</p>
-            <p>Integer vel nunc at nisi efficitur venenatis. Nam at erat magna. Donec convallis non magna nec tincidunt.</p>
+        <article id="Bienvenue">
+            <h2>Bonjour à tous !</h2>
+            <p><strong>Publié le :</strong> 16 décembre 2024</p>
+            <p>Bienvenue à tout le monde ! Visitez les boutons ci-dessous !</p>
+            <div style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #555; background-color: #f7d957; text-align: center; text-decoration: none; border-radius: 5px; font-weight: bold; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);">
+                <a href="#Forum" style="color: inherit; text-decoration: none;">VOIR LE FORUM</a>
+            </div>
+            <progress></progress>
         </article>
     </main>
 
