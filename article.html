@@ -22,6 +22,27 @@
           <li><a href="#La-creation-du-monde">La création du monde - GAÏA</a></li>
           <li><a href="gaia.html">Gaïa</a></li>
           <li><a href="cronos.html">Cronos</a></li>
+        </ul>
+    <script>
+        // Récupérer les éléments nécessaires
+        const searchInput = document.getElementById('search');
+        const listItems = document.querySelectorAll('#article-list li');
+
+        // Ajouter un événement d'entrée sur la barre de recherche
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            listItems.forEach(item => {
+                // Vérifier si le texte de l'élément correspond à la recherche
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.classList.remove('hidden'); // Affiche l'élément
+                } else {
+                    item.classList.add('hidden'); // Cache l'élément
+                }
+            });
+        });
+    </script>
     </form>
 </body>
   
