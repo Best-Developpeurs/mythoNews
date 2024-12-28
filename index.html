@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La gazette de l'Olympe</title>
     <style>
+        
+
+        .admin-options, .visitor-options {
+      display: none;
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -220,6 +224,16 @@
         <a href="archives.html">Anciens Articles</a>
         <a href="cartes.html">Les cartes mythologiques</a>
     </nav>
+    <div class="admin-options">
+    <h2>Options Admin</h2>
+    <button id="ban-device">Bannir cet appareil</button>
+    <button id="create-article">Créer un article</button>
+  </div>
+
+  <div class="visitor-options">
+    <h2>Options Visiteur</h2>
+    <button id="create-profile">Créer mon profil</button>
+  </div>
 <div class="article">
     <div class="article-header">
         <img src="profils/JPUEG.jpeg" alt="Avatar de l'utilisateur">
@@ -232,23 +246,89 @@
 </div>
 
 </body>
-    <script>
-        function afficherHeure() {
-            const maintenant = new Date(); // Crée un objet Date contenant l'heure actuelle
-            const heure = maintenant.getHours().toString().padStart(2, '0'); // Heure (HH)
-            const minutes = maintenant.getMinutes().toString().padStart(2, '0'); // Minutes (MM)
-            const secondes = maintenant.getSeconds().toString().padStart(2, '0'); // Secondes (SS)
-            
-            const heureFormatee = `${heure}:${minutes}:${secondes}`; // Format HH:MM:SS
-            
-            document.getElementById('heure-actuelle').textContent = heureFormatee; // Mise à jour du contenu
-        }
+<script>
+    // Fonction pour créer un cookie
+    function setCookie(name, value, days) {
+      let date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      let expires = "expires=" + date.toUTCString();
+      document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
 
-        // Met à jour l'heure chaque seconde
-        setInterval(afficherHeure, 1000);
+    // Fonction pour lire un cookie
+    function getCookie(name) {
+      let nameEq = name + "=";
+      let ca = document.cookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(nameEq) === 0) return c.substring(nameEq.length, c.length);
+      }
+      return "";
+    }
 
-        // Appel initial pour afficher l'heure immédiatement
-        afficherHeure();
-    </script>
-    
+    // Fonction pour générer un identifiant unique pour chaque appareil
+    function generateDeviceId() {
+      return 'device-' + new Date().getTime();  // Génère un ID unique basé sur le timestamp
+    }
+
+    // Vérification du rôle de l'utilisateur
+    function checkUserRole() {
+      let userRole = getCookie('role');
+      let userDeviceId = getCookie('deviceId');
+
+      // Si l'utilisateur a un cookie 'role' égal à 'admin', il a les privilèges admin
+      if (userRole === 'admin') {
+        document.querySelector('.admin-options').style.display = 'block';
+        document.querySelector('.visitor-options').style.display = 'none';
+      } else if (!userDeviceId) {
+        let newDeviceId = generateDeviceId();
+        setCookie('deviceId', newDeviceId, 365);  // Crée un ID unique pour le visiteur et le stocke
+        alert("Nouvel appareil détecté. Une page de profil sera créée.");
+        document.querySelector('.visitor-options').style.display = 'block';
+      } else {
+        document.querySelector('.visitor-options').style.display = 'block';
+      }
+    }
+
+    // Fonction pour créer une page de profil pour un visiteur
+    function createProfile() {
+      alert("Création de la page de profil...");
+      // Crée une page ou une section de profil pour le visiteur ici
+    }
+
+    // Bannir un appareil (Admin seulement)
+    function banDevice() {
+      alert("Bannissement de l'appareil...");
+      // Logique pour bannir l'appareil ici
+    }
+
+    // Exemple d'attribution d'un rôle admin (pour les tests, tu pourrais définir ça comme automatique)
+    function setAdminRoleForDevice() {
+      let deviceId = getCookie('deviceId');
+      if (deviceId && deviceId === 'device-1690982345678') { // Exemple : si l'ID de l'appareil correspond à celui de l'admin
+        setCookie('role', 'admin', 365);  // L'appareil est reconnu comme admin
+        alert("Admin reconnu et rôle attribué !");
+      }
+    }
+
+    document.getElementById('create-profile').addEventListener('click', createProfile);
+    document.getElementById('ban-device').addEventListener('click', banDevice);
+
+    // Exécute cette fonction pour définir un rôle admin (dépend de l'ID de l'appareil)
+    setAdminRoleForDevice();
+
+    checkUserRole();
+    function setAdminRoleForDevice() {
+  let deviceId = getCookie('deviceId');
+  
+  // Si l'appareil a un ID spécifique, le rôle admin est attribué automatiquement
+  // Par exemple, si deviceId correspond à 'device-1690982345678', cet appareil devient admin
+  if (deviceId && deviceId === 'device-1690982345678') {
+    setCookie('role', 'admin', 365);  // L'appareil est reconnu comme admin
+    alert("Admin reconnu et rôle attribué !");
+  }
+}
+
+  </script>
+  </script>
 </html>
