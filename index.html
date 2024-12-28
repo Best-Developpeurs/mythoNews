@@ -90,7 +90,16 @@
     <nav>
         <a href="article.html">Page d'articles actuels</a>
         <a href="archives.html">Anciens Articles</a>
+        <a href="cartes.html">Les cartes mythologiques</a>
     </nav>
+<h1>Changement du site</h1>
+    <button id="open-dialog">Ouvrir les details</button>
+
+    <dialog id="dialog">
+        <h2>Un changement pas encore fini</h2>
+        <p>Nous n'avons pas fini<ref>Pages, arrieres plans, etc.</ref>le developement du site. Soyez donc patients !</p>
+        <button id="close-dialog">Fermer</button>
+    </dialog>
 </body>
     <script>
         function afficherHeure() {
@@ -109,5 +118,20 @@
 
         // Appel initial pour afficher l'heure immédiatement
         afficherHeure();
+    </script>
+    <script>
+        const dialog = document.getElementById('dialog');
+        const openButton = document.getElementById('open-dialog');
+        const closeButton = document.getElementById('close-dialog');
+
+        // Ouvrir le dialogue
+        openButton.addEventListener('click', () => {
+            dialog.showModal(); // Affiche en mode modal (bloque l'arrière-plan)
+        });
+
+        // Fermer le dialogue
+        closeButton.addEventListener('click', () => {
+            dialog.close(); // Ferme la boîte de dialogue
+        });
     </script>
 </html>
