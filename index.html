@@ -5,6 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La gazette de l'Olympe</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        
+
+        article h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        article p {
+            margin: 10px 0;
+        }
+
+        /* Image à droite */
+        .img-right {
+            float: right;
+            margin-left: 15px;
+            width: 150px; /* Redimensionne l'image */
+            border-radius: 8px;
+        }
+
+        /* Image à gauche */
+        .img-left {
+            float: left;
+            margin-right: 15px;
+            width: 120px; /* Redimensionne l'image */
+            border-radius: 8px;
+        }
+
+        /* Image au milieu */
+        .img-center {
+            display: block;
+            margin: 15px auto;
+            width: 200px; /* Redimensionne l'image */
+            border-radius: 8px;
+        }
+
+        article button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        article button:hover {
+            background-color: #0056b3;
+        }
+
+        article a {
+            text-decoration: none;
+            color: white;
+        }
+
+        figure {
+            margin: 0;
+            text-align: center;
+        }
+
+        figcaption {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
         .background-image {
             background-image: url('Mythe-site.jpeg')
             background-size: cover; /* Adapte l'image à la taille du conteneur */
@@ -13,13 +85,7 @@
             width: 100%; /* Largeur du conteneur */
             height: 300px; /* Hauteur du conteneur */
 }
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
+        
         header {
             background-image: url('Mythe-site.jpeg');
             color: #fff;
@@ -83,6 +149,60 @@
             text-align: right;
         
         }
+        .article {
+            width: 100%;
+            max-width: 400px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 20px auto;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* En-tête de l'article */
+        .article-header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .article-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .article-header .username {
+            font-weight: bold;
+            font-size: 1em;
+            color: #333;
+            text-decoration: none;
+        }
+
+        /* Contenu principal */
+        .article-content {
+            padding: 10px;
+        }
+
+        .article-content img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .article-content p {
+            margin: 10px 0 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        /* Lien de profil */
+        .article-header .username:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -100,14 +220,17 @@
         <a href="archives.html">Anciens Articles</a>
         <a href="cartes.html">Les cartes mythologiques</a>
     </nav>
-<h1>Changement du site</h1>
-    <button id="open-dialog">Ouvrir les details</button>
+<div class="article">
+    <div class="article-header">
+        <img src="profils/JPUEG.jpeg" alt="Avatar de l'utilisateur">
+        <a href="Ja'Pix.html" class="username">Ja'Pix</a>
+    </div>
+    <div class="article-content">
+        
+        <p>Bonjour tout le monde !<br> Je vais vous parler du <button><a href="www.forum-dessine.fr">forum dessiné</a></button>. C'est un endroit pour dessiner avec les autres. Et qui sait, peut etre que vous trouverez des posts sur la mythologie grecque !#forum #dessin #hors-mythologie #hors-contexte #forum-dessin</p>
+    </div>
+</div>
 
-    <dialog id="dialog">
-        <h2>Un changement pas encore fini</h2>
-        <p>Nous n'avons pas fini<ref>Pages, arrieres plans, etc.</ref>le developement du site. Soyez donc patients !</p>
-        <button id="close-dialog">Fermer</button>
-    </dialog>
 </body>
     <script>
         function afficherHeure() {
@@ -127,19 +250,5 @@
         // Appel initial pour afficher l'heure immédiatement
         afficherHeure();
     </script>
-    <script>
-        const dialog = document.getElementById('dialog');
-        const openButton = document.getElementById('open-dialog');
-        const closeButton = document.getElementById('close-dialog');
-
-        // Ouvrir le dialogue
-        openButton.addEventListener('click', () => {
-            dialog.showModal(); // Affiche en mode modal (bloque l'arrière-plan)
-        });
-
-        // Fermer le dialogue
-        closeButton.addEventListener('click', () => {
-            dialog.close(); // Ferme la boîte de dialogue
-        });
-    </script>
+    
 </html>
