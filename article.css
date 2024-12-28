@@ -1,6 +1,7 @@
 .background-image {
-            Mythe-site.jpeg;
+    background-image: url('Mythe-site.jpeg');
 }
+
 .search-bar {
             display: flex;
             justify-content: center;
