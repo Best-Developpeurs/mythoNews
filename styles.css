@@ -89,7 +89,7 @@
   
 body {
             font-family: Papyrus, sans-serif;
-            background-color: #007bff;
+            background-image: url(https://github.com/Best-Developpeurs/mythoNews/blob/main/images/Fond.png);
         }
         .hidden {
             display: none;
