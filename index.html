@@ -33,4 +33,21 @@
   
 
 </body>
+
+<script>
+    const audio = document.getElementById('my-audio');
+    const playButton = document.getElementById('play');
+    const pauseButton = document.getElementById('pause');
+    const status = document.getElementById('status');
+
+    playButton.addEventListener('click', () => {
+        audio.play();
+        status.textContent = 'Playing';
+    });
+
+    pauseButton.addEventListener('click', () => {
+        audio.pause();
+        status.textContent = 'Paused';
+    });
+</script>
 </html>
