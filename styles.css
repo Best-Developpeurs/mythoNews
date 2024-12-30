@@ -1,10 +1,15 @@
+.article-title i {
+  margin-right: 5px;
+  color: #666;
+}
+
 header {
  background-image: url('images/Header.png')
 
   
 body {
             font-family: Papyrus, sans-serif;
-            blackround-color: #3050dd;
+            background-color: #007bff;
         }
         .hidden {
             display: none;
