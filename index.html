@@ -2,76 +2,92 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceuil</title>
+    <title>Accueil</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+      /* Centrer le titre dans la section */
+      h1 {
+        text-align: center;
+      }
+      .article-card {
+        background-image: url('images/Header.png');
+        background-size: cover;
+      }
+    </style>
   </head>
-  <header>
-    <h1>Gazette de l'Olympe</h1>
-  </header>
-  <div id="audio-player">
-    <button id="play">Musique</button>
-    <button id="pause">Pas musique</button>
-    <span id="status">Stopped</span>
-</div>
-<audio id="my-audio" src="Sons%20en%20arrière%20plan/Musique%201.mp3"></audio>
-<body>
-  <section>
-    <h1 float: center;>Infos utiles</h1>
-  <ul>
-    <li><iframe width="560" height="315" src="https://github.com/Best-Developpeurs/mythoNews/blob/main/MAINTAINERS.md" 
-        title="Les mainteneurs" frameborder="5" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-</iframe></li>
-    <li><iframe width="560" height="315" src="https://github.com/Best-Developpeurs/mythoNews/blob/main/FAQ.md" 
-        title="FAQ (Foire Aux Questions)" frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-</iframe></li>
-    <li><iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-        title="YouTube video" frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-</iframe></li>
-  </ul>
-  
-  </section>
-<hr>
+  <body>
+    <header>
+      <h1>Gazette de l'Olympe</h1>
+    </header>
 
-<section>
-  <h1>Articles</h1>
-  <div class="article-card" background-image="images/Header.png">
-  <a href="https://github.com/Best-Developpeurs/mythoNews/wiki/La-création-du-monde#1ère-partie" class="article-link">
-    <img src="1.jpeg" class="article-image">
-    <div class="article-content">
-      <h3 class="article-title">La création du monde</h3>
-      <p class="article-meta">le 30 décembre par <strong>Jacob GALEA</strong></p>
-      <span class="article-comments">3</span>
+    <div id="audio-player">
+      <button id="play">Musique</button>
+      <button id="pause">Pas musique</button>
+      <span id="status">Stopped</span>
     </div>
-  </a>
-</div>
+    <audio id="my-audio" src="Sons%20en%20arrière%20plan/Musique%201.mp3"></audio>
 
-</section>
-</body>
-<footer >
+    <section>
+      <h1>Infos utiles</h1>
+      <ul>
+        <li>
+          <iframe width="560" height="315" src="https://github.com/Best-Developpeurs/mythoNews/blob/main/MAINTAINERS.md" 
+            title="Les mainteneurs" frameborder="5" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </li>
+        <li>
+          <iframe width="560" height="315" src="https://github.com/Best-Developpeurs/mythoNews/blob/main/FAQ.md" 
+            title="FAQ (Foire Aux Questions)" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </li>
+        <li>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+            title="YouTube video" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </li>
+      </ul>
+    </section>
+    <hr>
 
-  <p>by <strong>Jacob GALEA</strong>, <strong>Tristant BOUTIN</strong> et <strong>Andrea DI-PIETRO</strong></p>
+    <section>
+      <h1>Articles</h1>
+      <div class="article-card">
+        <a href="https://github.com/Best-Developpeurs/mythoNews/wiki/La-création-du-monde#1ère-partie" class="article-link">
+          <img src="1.jpeg" class="article-image" alt="Image article">
+          <div class="article-content">
+            <h3 class="article-title">La création du monde</h3>
+            <p class="article-meta">le 30 décembre par <strong>Jacob GALEA</strong></p>
+            <span class="article-comments">3</span>
+          </div>
+        </a>
+      </div>
+    </section>
 
-</footer>
-<script>
-    const audio = document.getElementById('my-audio');
-    const playButton = document.getElementById('play');
-    const pauseButton = document.getElementById('pause');
-    const status = document.getElementById('status');
+    <footer>
+      <p>by <strong>Jacob GALEA</strong>, <strong>Tristant BOUTIN</strong> et <strong>Andrea DI-PIETRO</strong></p>
+    </footer>
 
-    playButton.addEventListener('click', () => {
-        audio.play();
-        status.textContent = 'Playing';
-    });
+    <script>
+      const audio = document.getElementById('my-audio');
+      const playButton = document.getElementById('play');
+      const pauseButton = document.getElementById('pause');
+      const status = document.getElementById('status');
 
-    pauseButton.addEventListener('click', () => {
-        audio.pause();
-        status.textContent = 'Paused';
-    });
-</script>
+      playButton.addEventListener('click', () => {
+          audio.play();
+          status.textContent = 'Playing';
+      });
+
+      pauseButton.addEventListener('click', () => {
+          audio.pause();
+          status.textContent = 'Paused';
+      });
+    </script>
+  </body>
 </html>
