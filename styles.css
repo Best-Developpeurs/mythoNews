@@ -1,24 +1,3 @@
-/* Header */
-.journal-header {
-    background-image: url(https://github.com/Best-Developpeurs/mythoNews/blob/main/images/Header.png);
-    color: white;
-    text-align: center;
-    padding: 20px 10px;
-    border-bottom: 5px solid #00264d;
-}
-
-.journal-header h1 {
-    font-size: 36px;
-    margin: 0;
-}
-
-.journal-header .subtitle {
-    font-size: 18px;
-    margin-top: 10px;
-    font-style: italic;
-}
-
-
 .article-card {
   background-color: #fff;
   border-radius: 8px;
@@ -85,11 +64,10 @@
 }
 
 
-
   
 body {
             font-family: Papyrus, sans-serif;
-            background-image: url(https://github.com/Best-Developpeurs/mythoNews/blob/main/images/Fond.png);
+            background-image: url(images/Fond.png);
         }
         .hidden {
             display: none;
