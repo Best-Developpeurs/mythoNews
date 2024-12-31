@@ -1,4 +1,22 @@
+/* Style du cercle rouge */
+.article-badge {
+  position: absolute;
+  top: 10px; /* Ajuste selon le positionnement souhaité */
+  right: -10px; /* Pour qu'il dépasse légèrement */
+  width: 40px; /* Taille du cercle */
+  height: 40px;
+  background-color: red;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Rend l'élément circulaire */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optionnel, pour un effet d'ombre */
+}
 .article-card {
+  position: relative;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
