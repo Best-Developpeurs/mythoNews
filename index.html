@@ -3,6 +3,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
+    <script>
+    function showAlertWithChoices() {
+      setTimeout(() => {
+        const userChoice = confirm("Nous vous conseillons de partir vers notre blog, qui est plus complet que le site pour l'instant.");
+        if (userChoice) {
+          window.location.href = "https://mythonews-officiel.blogspot.com";
+        } else {
+          alert("Vous avez choisi de rester ici.");
+        }
+      }, 5000); // 5 secondes
+    }
+  </script>
     <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -44,7 +56,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     </style>
   </head>
-  <body>
+  <body onload="showAlertWithChoices()">
     <header>
       <h1>Gazette de l'Olympe</h1>
     </header>
